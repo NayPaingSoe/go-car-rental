@@ -33,6 +33,8 @@ Route::post('driverregister','frontend\DriverController@store')->name('driverreg
 Route::get('driverform','frontend\DriverController@create')->name('driverform');
 Route::get('indexdriver','frontend\DriverController@index')->name('indexdriver');
 
+Route::resource('driverindex','frontend\DriverindexController');
+
 Route::get('policy','frontend\DriverController@policy')->name('policy');
 
 
