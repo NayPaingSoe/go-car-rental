@@ -36,6 +36,7 @@
 						<a><button class="btn btn-info mr-3" style="width: 100px;">Back</button></a>
 					<button data-toggle="modal" data-target="#Order" class="btn btn-info" style="width: 100px;">Booking</button>
 
+
 				</div>
 			</div>
 		</div>

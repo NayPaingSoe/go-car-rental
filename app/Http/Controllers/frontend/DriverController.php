@@ -105,8 +105,8 @@ class DriverController extends Controller
 
         $user->assignRole('driver');
         // return $user;
-        $orders=Order::all();
-        return view('frontend.driver.index_order',compact('orders'));
+        
+     
     }
 
 
