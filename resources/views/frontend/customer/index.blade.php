@@ -129,10 +129,10 @@
                   <label for="dropdate">Drop off Date </label>
                   <select class="form-control" id="dropdate" name="dropdate">
                    <option value="{{date('y-m-d')}}">{{date("M - d")}}</option>
-                   <option value="{{
+                    <option value="{{
                     date('y-m-d',strtotime('today + 1day'))
                   }}">{{
-                    date("y-m-d",strtotime('today + 1day'))
+                    date("M - d",strtotime('today + 1day'))
                   }}</option>
                   <option value="{{
                     date('y-m-d',strtotime('today + 2day'))

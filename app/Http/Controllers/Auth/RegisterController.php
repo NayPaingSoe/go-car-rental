@@ -73,5 +73,8 @@ class RegisterController extends Controller
 
         $user->assignRole('customer');
         return $user;
+
+        
     }
+
 }

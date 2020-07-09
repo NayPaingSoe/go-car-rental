@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
+
+
 class DriverindexController extends Controller
 {
     /**
@@ -16,6 +18,8 @@ class DriverindexController extends Controller
     {
         $orders=Order::all();
          return view('frontend.driver.index_order',compact('orders'));
+
+         
     }
 
     /**

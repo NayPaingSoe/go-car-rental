@@ -27,7 +27,7 @@
         </a>
 
         <a href="{{route('policy')}}">
-          <button class="btn btn-info m-2">Policy</button>
+          <button class="btn btn-info">Policy</button>
         </a>
 
     @role('driver')
@@ -98,9 +98,6 @@
 <div class="container-fluid">
   <div class="container">
    
-   
-          
-       
             @foreach($orders as $order)
 
               @if(auth()->user()->id==$order->driver_id)
@@ -129,23 +126,23 @@
               <p ><i class="fas fa-caret-right"></i>{{$order->price}}</p>
             </div>
                <div class="btn-group col-lg-3 col-md-3">
-             <button type="submit" class="btn btn-primary m-1 rounded" style="height: 40px">Accept</button>
-             <a href="#" class="btn btn-danger m-1 rounded " style="height: 40px;">Cancle</a>
+             
+            
+            <!--  <button class="btn btn-primary m-1 rounded" style="height: 40px">Accept</button> -->
+              <a href="#" class="btn btn-danger m-1 rounded " style="height: 40px;">Cancle</a>
+                 <a href="#" class="btn btn-info m-1 rounded " style="height: 40px;">Accept</a>
            </div>
 
             <div class="col-lg-3 col-md-3 col-sm-5 pl-sm-4 offset-sm-2 offset-md-2 offset-lg-2 p-0 hideclass">
               <p >Pick-up Date</p>
-              <p >Drop-off Date</p>
               <p >Pick-up Time</p>
-              <p >Price</p>
-              <p >Car Type</p>
+              <p >Drop-off Date</p>
+            
             </div>
-            <div class="col-lg-4 col-md-4 pr-5 col-sm-5 hideclass">
-              <p><i class="fas fa-caret-right"></i> 10/7/2020</p>
-              <p><i class="fas fa-caret-right"></i> 20/7/2020</p>
-              <p><i class="fas fa-caret-right"></i> 10:00 AM</p>
-              <p><i class="fas fa-caret-right"></i> 30000 MMK(one day)</p>
-              <p><i class="fas fa-caret-right"></i> Van</p>
+            <div class="col-lg-4 col-md-4 pr-5 col-sm-5 bg-light hideclass">
+              <p><i class="fas fa-caret-right"></i>{{$order->pickup_date}}</p>
+              <p><i class="fas fa-caret-right"></i>{{$order->pick_time}} \ {{$order->pickup_time_am}}</p>
+              <p><i class="fas fa-caret-right"></i>{{$order->dropoff_date}}</p>
             </div>
 
           </div>
@@ -159,13 +156,6 @@
          <p class="text-center pt-5" style="font-size: 28px;">You have no orders yets</p>
              @endif
               @endforeach
-           
-
-          
-         
-         
-
-
 
 
   </div>

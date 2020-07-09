@@ -8,6 +8,8 @@ use App\Division;
 use DB;
 use App\Driver;
 use DateTime;
+use App\Mail\SendEmail;
+
 class CustomerController extends Controller
 { 
     /**
@@ -27,13 +29,6 @@ class CustomerController extends Controller
      $city= City::where('division_id', $id)->get();
      echo $city;
    }
-    public function details($id)
-    {   
-       $driver=Driver::find($id);
-        $driverhomedivision=Division::find($id);
-      return view('frontend.customer.search_detail',compact('driver','driverhomedivision'));
-
-    }
 
    public function dropfetch(Request $request)
    {
@@ -41,8 +36,6 @@ class CustomerController extends Controller
      $city= City::where('division_id', $id)->get();
      echo $city;
    }
-
-
 
 
    public function searchdriver(Request $request)
@@ -53,15 +46,10 @@ class CustomerController extends Controller
      $dropoffcity=$request->dropoffdivision;
      $pickupdate=$request->pickupdate;
      $dropdate=$request->dropdate;
-         $pickuptime=$request->pickuptime;
-             $pickuptimeam=$request->pickuptimeam;
+     $pickuptime=$request->pickuptime;
+     $pickuptimeam=$request->pickuptimeam;
             
-
-
-
      $userorderdetails=[$pickupdivision,$pickupcity,$dropoffdivision,$dropoffcity,$pickupdate,$dropdate,$pickuptime,$pickuptimeam];
-
-
 
      $drivers= Driver::all();
      $driv=$drivers->where('busy','=',0);
@@ -89,11 +77,9 @@ class CustomerController extends Controller
 
  return view('frontend.customer.search_result',compact('samedivision','usersdriver','interval','userorderdetails'));
 
-
-
-
-
      }
+
+      Mail::to($user)->send(new SendEmail);
    }
  }
 

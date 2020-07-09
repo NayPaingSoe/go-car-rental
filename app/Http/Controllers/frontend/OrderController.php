@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Driver;
 use App\Order;
+
+
 class OrderController extends Controller
 {
 
@@ -41,6 +43,5 @@ class OrderController extends Controller
         $order->save();
 		
 	
-
 	}
 }
