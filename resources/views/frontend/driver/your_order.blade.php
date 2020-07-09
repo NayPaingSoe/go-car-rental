@@ -22,12 +22,12 @@
           <button class="btn btn-info">Pending Lists</button>
         </a>
 
-        <a href="{{route('yourorder')}}">
+        <a href="">
           <button class="btn btn-info m-2">Your Orders</button>
         </a>
 
         <a href="{{route('policy')}}">
-          <button class="btn btn-info">Policy</button>
+          <button class="btn btn-info m-2">Policy</button>
         </a>
 
     @role('driver')
@@ -97,7 +97,6 @@
 
 <div class="container-fluid">
   <div class="container">
-      
             @foreach($orders as $order)
 
               @if(auth()->user()->id==$order->driver_id)
@@ -126,13 +125,11 @@
               <p ><i class="fas fa-caret-right"></i>{{$order->price}}</p>
             </div>
                <div class="btn-group col-lg-3 col-md-3">
-
            
             
             <!--  <button class="btn btn-primary m-1 rounded" style="height: 40px">Accept</button> -->
-              <a href="{{route('cancle',$order->id)}}" onclick="return confirm('are you sure to reject?')" class="btn btn-danger m-1 rounded " style="height: 40px;">Cancle</a>
-                 <a href="{{route('statusone',$order->driver_id)}}" class="btn btn-info m-1 rounded " style="height: 40px;">Accept</a>
-
+             
+                 <a href="{{route('statusoneone',$order->id)}}" class="btn btn-info m-1 rounded " style="height: 40px;">Done</a>
 
            </div>
 
@@ -159,6 +156,13 @@
          <p class="text-center pt-5" style="font-size: 28px;">You have no orders yets</p>
              @endif
               @endforeach
+           
+
+          
+         
+         
+
+
 
 
   </div>

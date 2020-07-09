@@ -54,15 +54,15 @@ class DriverController extends Controller
 
         $driverimageName = time().'.'.$request->driverphoto->extension();
         $request->driverphoto->move(public_path('images/driver'),$driverimageName);
-        $driverfilepath= 'images/driver'.$driverimageName;
+        $driverfilepath= 'images/driver/'.$driverimageName;
 
         $licenceimageName = time().'.'.$request->licencephoto->extension();
         $request->licencephoto->move(public_path('images/licence'),$licenceimageName);
-        $licencefilepath= 'images/licence'.$licenceimageName;
+        $licencefilepath= 'images/licence/'.$licenceimageName;
 
          $carimageName = time().'.'.$request->carphoto->extension();
         $request->carphoto->move(public_path('images/car'),$carimageName);
-        $carfilepath= 'images/car'.$carimageName;
+        $carfilepath= 'images/car/'.$carimageName;
 
         $driver=new Driver;
         $driver->name=$request->name;
@@ -105,7 +105,7 @@ class DriverController extends Controller
 
         $user->assignRole('driver');
         // return $user;
-        
+        return view('frontend.driver.policy');
      
     }
 
