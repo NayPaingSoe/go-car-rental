@@ -43,6 +43,8 @@ class OrderController extends Controller
         $order->status=0;
         $order->save();
 
+        
+
 	}
 	public function statusone($id)
 	{      

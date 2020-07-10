@@ -50,9 +50,17 @@
         
 
     @role('customer')
+        <a href="{{route('home')}}">
+          <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
+            Search Car</button>
+        </a>
         <a href="{{route('customeryour_order')}}">
           <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
-            <span style="color: #00f2ff;">{{Auth::user()->name}}</span> Order</button>
+            <span style="color: #00f2ff;">Your</span> Order</button>
+        </a>
+        <a href="{{route('notification')}}">
+          <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
+            <i class="fas fa-bell"></i></button>
         </a>
     <ul class="m-2 list-unstyled">
         <!-- Authentication Links -->

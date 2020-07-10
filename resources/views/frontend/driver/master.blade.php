@@ -54,7 +54,7 @@
           <button class="btn text-white" style="border-bottom: #07cffd solid 3px;">Your Orders</button>
         </a>
 
-      <a href="{{route('driverregister')}}">
+      <a href="{{route('driverindex.index')}}">
           <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">Pending Lists</button>
         </a>
 

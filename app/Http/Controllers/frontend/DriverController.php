@@ -55,7 +55,6 @@ class DriverController extends Controller
         $request->carphoto->move(public_path('images/car'),$carimageName);
         $carfilepath= 'images/car/'.$carimageName;
 
-
         $user=new User;
         $user->name=$request->name;
         $user->email=$request->email;
@@ -98,11 +97,9 @@ class DriverController extends Controller
        //  dd($driver);
         $user->assignRole('driver');
 
-
         
         // return $user;
         return view ('frontend.driver.policy');
-
      
     }
 
