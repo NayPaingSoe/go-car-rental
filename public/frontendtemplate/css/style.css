@@ -1,25 +1,31 @@
+*
+{
+	font-family: font6;
+}
+
 #icon
 {
 	color: #007588;
 	font-size: 30px;
 }
 
-#border
+.bordermdal
 {
-	border: 2px solid #007588;
-	border-radius: 10px;
+	border: 3px solid;
+  	border-image-source: linear-gradient(45deg, #D2FFFF,#79E7E7, #00AAAA, #007588);
+  	border-image-slice: 1;
 
 }
 
 .modalbg
 {
-	background-color: #007588;
-	color: #fff;
+	background-color: #fff;
 }
 
 .modal-header
 {
 	border-bottom: 0 none;
+	color: #115d63;
 }
 
 .modal-footer
@@ -41,18 +47,34 @@
   	border-radius: 10px;*/
   	background-image: linear-gradient(45deg, #D2FFFF,#79E7E7, #00AAAA, #007588);
 }
-.allbutton {
-	background-color: #018ABE;
-	border-color: #018ABE;
-	color: white;
+
+.border
+{
+	border: linear-gradient(45deg, #D2FFFF,#79E7E7, #00AAAA, #007588);
+	border-radius: 10px
 }
 
-body, wrapper {
+
+body, wrapper 
+{
    min-height:100vh;
 }
 
-.flex-fill {
+.flex-fill 
+{
    flex: 1 1 auto;
 }
+
+#link a:hover
+{
+	border-bottom: #07cffd solid 3px;
+}
+
+.bodybg
+{
+	background-image: linear-gradient(45deg, #DFE6E7,#A7E7DF);
+}
+
+
 
 

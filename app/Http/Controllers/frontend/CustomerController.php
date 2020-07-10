@@ -50,8 +50,8 @@ class CustomerController extends Controller
      $dropoffcity=$request->dropoffdivision;
      $pickupdate=$request->pickupdate;
      $dropdate=$request->dropdate;
-         $pickuptime=$request->pickuptime;
-             $pickuptimeam=$request->pickuptimeam;
+      $pickuptime=$request->pickuptime;
+    $pickuptimeam=$request->pickuptimeam;
      $userorderdetails=[$pickupdivision,$pickupcity,$dropoffdivision,$dropoffcity,$pickupdate,$dropdate,$pickuptime,$pickuptimeam];
      $drivers= Driver::all();
      $driv=$drivers->where('busy','=',0);

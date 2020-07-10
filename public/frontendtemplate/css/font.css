@@ -1,29 +1,47 @@
 @font-face
 {
-	font-family: 'Bold';
-	src: url('fonts/Baloo2-Bold.ttf');
+	font-family: 'font1';
+	src: url('frontendtemplate/fonts/Cabin-Bold.ttf');
 }
 
 @font-face
 {
-	font-family: 'ExtraBold';
-	src: url('fonts/Baloo2-ExtraBold.ttf');
+	font-family: 'font2';
+	src: url('frontendtemplate/fonts/Cabin-BoldItalic.ttf');
 }
 
 @font-face
 {
-	font-family: 'Medium';
-	src: url('fonts/Baloo2-Medium.ttf');
+	font-family: 'font3';
+	src: url('frontendtemplate/fonts/Cabin-Italic.ttf');
 }
 
 @font-face
 {
-	font-family: 'Regular';
-	src: url('fonts/Baloo2-Regular.ttf');
+	font-family: 'font4';
+	src: url('frontendtemplate/fonts/Cabin-Medium.ttf');
 }
 
 @font-face
 {
-	font-family: 'SemiBold';
-	src: url('fonts/Baloo2-SemiBold.ttf');
+	font-family: 'font5';
+	src: url('frontendtemplate/fonts/Cabin-MediumItalic.ttf');
+}
+
+@font-face
+{
+	font-family: 'font6';
+	src: url('frontendtemplate/fonts/Cabin-Regular.ttf');
+}
+
+@font-face
+{
+	font-family: 'font7';
+	src: url('frontendtemplate/fonts/Cabin-SemiBold.ttf');
+}
+
+@font-face
+{
+	font-family: 'font8';
+	src: url('frontendtemplate/fonts/Cabin-SemiBoldItalic.ttf');
 }

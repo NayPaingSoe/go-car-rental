@@ -1,11 +1,13 @@
 @extends('frontend.customer.master')
 
 @section('content')
-<div id="img" style="background-image: url('{{asset('frontendtemplate/images/car.jpeg')}}');">
+<div class="img-fluid" id="img" style="background-image: url('{{asset('frontendtemplate/images/car10.jpg')}}')">
   <div class="container-fluid">
-    <div class="container py-5 d-flex justify-content-end">
-      <div class="card col-lg-6 col-md-10 col-sm-10">
+
+    <div class="container pb-3 pt-5 d-flex justify-content-center ">
+      <div class="card col-lg-6 col-md-10 col-sm-10 shadow-lg p-3 mb-5 bg-white rounded">
         <div class="card-block">
+          <h2 class="mb-4 text-center" style="color: #115d63;">Find the Trip you want Here</h2>
           <form action="{{route('customer.searchdriver')}}" method="POST">
             {{csrf_field()}}
             <div class="row">
@@ -33,7 +35,7 @@
 
             <div class="form-group col-lg-6 col-md-6">
              <div class="p-3">
-              <label for="dropoffdivision">Drop off place/City </label>
+              <label for="dropoffdivision">Drop off place/Division </label>
               <select class="form-control " id="dropoffdivision" name="dropoffdivision">
                 <option value="">Select Division</option>
                 @foreach($division as $row)

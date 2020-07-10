@@ -1,74 +1,70 @@
 @extends('frontend.customer.master')
 @section('content')
 
-	<div class="mt-5 mb-3 text-center">
-		<img src="{{asset('frontendtemplate/images/icon3.svg')}}" class="img-fluid card-img" style="width: 60px;"><h2>Car Search List</h2>
-		<!-- <div style="padding-left: 250px;padding-right: 250px;"><hr></div> -->
+<div class="bodybg">
+	<div class="my-5 text-center">
+		<img src="{{asset('frontendtemplate/images/icon3.svg')}}" class="img-fluid card-img" style="width: 60px;">
+		<h2>Find Your Favorite Car Here</h2>
 	</div>
 
-
-	<div class="container pb-5 ">
+	<div class="container my-5" >
 		{{--		foreach   --}}
 
 
 	@if(sizeof($usersdriver)>0)
 	@foreach($usersdriver as $sameone)
-	<div class=" no-gutters my-1" id="border">
-		<div class="row mt-5">
-			<div class="col-lg-2 col-md-4 col-sm-4" >
-				<img src="{{asset('frontendtemplate/images/car1.jpg')}}" class="img-fluid card-img " style="width:200px;">
+	<div class=" no-gutters my-5" >
+		<div class="row mt-5 ">
+			<div class="col-lg-3 col-md-3 col-sm-3" >
+				<img src="{{asset($someone->carphoto)}}" class="img-fluid card-img " style="width:200px;">
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4">
+			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="text-center">
 					<i class="fas fa-user-alt" id="icon"></i>
 					<!-- <i class="fas fa-car" id="icon"></i> -->
 					<p>{{$sameone->name}}</p>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4">
+			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="text-center">
 					<i class="fas fa-phone-alt" id="icon"></i>
 					<p>{{$sameone->phone}}</p>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4" >
+			<div class="col-lg-3 col-md-3 col-sm-3" >
 				<div class="text-center">
 					<i class="fas fa-car" id="icon"></i>
 					<p>{{$sameone->cartype}}</p>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4">
+		</div>
+		<div class="row mb-3">
+		
+			<div class="cardetail col-lg-4 col-md-4 col-sm-4">
+				<div class="text-center">
+					<i class="fas fa-home" id="icon"></i>
+					<p>{{$sameone->division_id}}</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 cardetail">
+				<div class="text-center">
+					<i class="fas fa-money-bill" id="icon"></i>
+					<p>{{$sameone->price}}(per day)</p>
+				</div>
+			</div>
+			<div class="cardetail col-lg-4 col-md-4 col-sm-4">
 				<div class="text-center">
 					<i class="fas fa-money-bill" id="icon"></i>
 					<p>{{$sameone->price * $interval}}</p>
 				</div>
 
 			</div>
-			<div class="col-sm-4 d-lg-none">
 
-			</div>
-		
-			<div class=" col-lg-2 col-md-12 col-sm-12 pr-5 pb-3">
-				<button class="rounded allbutton ml-0 h-50 cardetails" style="background-color: #018ABE">Details</button>
-				<button type="submit" class="rounded allbutton h-50 order" data-toggle="modal" data-target="#myModal2" style="width: 80px;" data-driver_id="{{$sameone->id}}" data-cartype="{{$sameone->cartype}}" data-total="{{$sameone->price * $interval}}" data-user_id="{{Auth::user()->id}}" data-pickupdivision="{{$userorderdetails[0]}}" data-pickupcity="{{$userorderdetails[1]}}" data-dropoffdivision="{{$userorderdetails[2]}}" data-dropoffcity="{{$userorderdetails[3]}}" data-pickupdate="{{$userorderdetails[4]}}" data-dropdate="{{$userorderdetails[5]}}" data-pickuptime="{{$userorderdetails[6]}}" data-pickuptimeam="{{$userorderdetails[7]}}" >Order</button></div>
-
-
-
-			<div class="cardetail col-lg-2 col-md-4 col-sm-4 offset-lg-2">
-				<div class="text-center">
-					<i class="fas fa-home" id="icon"></i>
-					<p>{{$sameone->division_id}}</p>
-				</div>
-			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4 cardetail">
-				<div class="text-center">
-					<i class="fas fa-money-bill" id="icon"></i>
-					<p>{{$sameone->price}}(per day)</p>
-				</div>
-
+			<div class=" col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+				<a href=""><button class="cardetails btn btn-info m-1" >Details</button></a>
+				<a href=""><button type="submit"  class="btn btn-info m-1" data-toggle="modal" data-target="#myModal2" style="width: 80px;" data-driver_id="{{$sameone->id}}" data-cartype="{{$sameone->cartype}}" data-total="{{$sameone->price * $interval}}" data-user_id="{{Auth::user()->id}}" data-pickupdivision="{{$userorderdetails[0]}}" data-pickupcity="{{$userorderdetails[1]}}" data-dropoffdivision="{{$userorderdetails[2]}}" data-dropoffcity="{{$userorderdetails[3]}}" data-pickupdate="{{$userorderdetails[4]}}" data-dropdate="{{$userorderdetails[5]}}" data-pickuptime="{{$userorderdetails[6]}}" data-pickuptimeam="{{$userorderdetails[7]}}" >Order</button></a>
 			</div>
 		</div>
-
 	</div>
 	@endforeach
 	@endif
@@ -77,69 +73,65 @@
 
 	@if(sizeof($samedivision)>0)
 	@foreach($samedivision as $samezero)
-	<div class=" no-gutters my-1" id="border">
+	<div class=" no-gutters my-5">
+
 
 		<div class="row mt-5">
-			<div class="col-lg-2 col-md-4 col-sm-4" >
-				<img src="{{asset('frontendtemplate/images/car1.jpg')}}" class="img-fluid card-img " style="width:200px;">
+			<div class="col-lg-3 col-md-3 col-sm-3" >
+				<img src="{{asset($samezero->carphoto)}}" class="img-fluid card-img " style="width:200px;">
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4">
+			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="text-center">
 					<i class="fas fa-user-alt" id="icon"></i>
 					<!-- <i class="fas fa-car" id="icon"></i> -->
 					<p>{{$samezero->name}}</p>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4">
+			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="text-center">
 					<i class="fas fa-phone-alt" id="icon"></i>
 					<p>{{$samezero->phone}}</p>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4" >
+			<div class="col-lg-3 col-md-3 col-sm-3" >
 				<div class="text-center">
 					<i class="fas fa-car" id="icon"></i>
 					<p>{{$samezero->cartype}}</p>
 				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4">
-				<div class="text-center">
-					<i class="fas fa-money-bill" id="icon"></i>
-					<p>{{$samezero->price * $interval}}(total)</p>
-				</div>
-			</div>
-
-			<div class="col-sm-4 d-lg-none">
-
-			</div>
-			
-
-
-			<div class=" col-lg-2 col-md-12 col-sm-12 pr-5 pb-3">
-				<button class=" allbutton rounded ml-0 h-50 cardetails">Details</button>
-				<button type="submit" class="rounded allbutton h-50 order" data-toggle="modal" data-target="#myModal2" style="width: 80px;" data-driver_id="{{$samezero->id}}" data-cartype="{{$samezero->cartype}}" data-total="{{$samezero->price * $interval}}" data-user_id="{{Auth::user()->id}}" data-pickupdivision="{{$userorderdetails[0]}}" data-pickupcity="{{$userorderdetails[1]}}" data-dropoffdivision="{{$userorderdetails[2]}}" data-dropoffcity="{{$userorderdetails[3]}}" data-pickupdate="{{$userorderdetails[4]}}" data-dropdate="{{$userorderdetails[5]}}" data-pickuptime="{{$userorderdetails[6]}}" data-pickuptimeam="{{$userorderdetails[7]}}" >Order</button></div>
-
-				<div class="cardetail col-lg-2 col-md-4 col-sm-4 offset-lg-2">
+		</div>
+		<div class="row mb-3">
+		
+				<div class="cardetail col-lg-4 col-md-4 col-sm-4">
 					<div class="text-center">
 						<i class="fas fa-home" id="icon"></i>
 						<p>{{$samezero->division_id}}</p>
 					</div>
 				</div>
-				<div class="col-lg-2 col-md-4 col-sm-4 cardetail">
+				<div class="col-lg-4 col-md-4 col-sm-4 cardetail">
 					<div class="text-center">
 						<i class="fas fa-money-bill" id="icon"></i>
 						<p>{{$samezero->price }}(per day)</p>
 					</div>
-
-
 				</div>
-			</div>
+				<div class="cardetail col-lg-4 col-md-4 col-sm-4">
+					<div class="text-center">
+						<i class="fas fa-money-bill" id="icon"></i>
+						<p>{{$samezero->price * $interval}}(total)</p>
+					</div>
+				</div>
 
+			<div class=" col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+				<button class="cardetails btn btn-info m-1">Details</button>
+				<button type="submit" class="btn btn-info m-1 " data-toggle="modal" data-target="#myModal2" style="width: 80px;" data-driver_id="{{$samezero->id}}" data-cartype="{{$samezero->cartype}}" data-total="{{$samezero->price * $interval}}" data-user_id="{{Auth::user()->id}}" data-pickupdivision="{{$userorderdetails[0]}}" data-pickupcity="{{$userorderdetails[1]}}" data-dropoffdivision="{{$userorderdetails[2]}}" data-dropoffcity="{{$userorderdetails[3]}}" data-pickupdate="{{$userorderdetails[4]}}" data-dropdate="{{$userorderdetails[5]}}" data-pickuptime="{{$userorderdetails[6]}}" data-pickuptimeam="{{$userorderdetails[7]}}" >Order</button>
+			</div>
 		</div>
+	</di>
 		@endforeach
 		@endif
 
 	</div>
+</div>
 
 
 	<div id="myModal2" class="modal fade" role="dialog" >
@@ -159,7 +151,7 @@
 					<img src="{{asset('frontendtemplate/images/reply.svg')}}" class="img-fluid" width="30">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 
@@ -170,7 +162,7 @@
 	@section('script')
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('.cardetail').hide();
+			$(".cardetail").hide();
 			$(".cardetails").click(function(){
 				$(".cardetail").toggle('slow');
 			});

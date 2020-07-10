@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
 
+use DB;
 
 class DriverindexController extends Controller
 {
@@ -20,6 +21,18 @@ class DriverindexController extends Controller
          return view('frontend.driver.index_order',compact('orders'));
 
          
+
+        $orders=Order::where('status','=',0)->get();
+
+ $drivername=DB::table('orders')
+            ->join('drivers', 'orders.driver_id', '=', 'drivers.id')
+            ->select('drivers.name as dname')
+            ->get();
+        
+
+
+         return view('frontend.driver.index_order',compact('orders','drivername'));
+
     }
 
     /**

@@ -31,7 +31,7 @@
 <body> 
 
 <wrapper class="d-flex flex-column">
-    <nav class="navbar navbar-dark flex-fill " style="height: 80px; background-color: #202e2f;">
+    <nav class="navbar navbar-dark flex-fill " style="height: 80px; background-color: #0d4a4e;">
 
         <div class="container-fluid">
 
@@ -47,38 +47,34 @@
             </a>
             </div>
 
-      <a href="{{route('notification')}}">
-          <button class="btn btn-info"><i class="fas fa-bell"></i></button>
-        </a>
-
-        <a href="{{route('customeryour_order')}}">
-          <button class="btn btn-info m-2">Your Orders</button>
-        </a>
-
-        <a href="{{route('policy')}}">
-          <button class="btn btn-info m-2">Policy</button>
-        </a>
-
+        
 
     @role('customer')
-    <ul class="p-3">
+        <a href="{{route('customeryour_order')}}">
+          <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
+            <span style="color: #00f2ff;">{{Auth::user()->name}}</span> Order</button>
+        </a>
+    <ul class="m-2 list-unstyled">
         <!-- Authentication Links -->
         @guest
         @else   
         <div id="username">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
-                    <!-- {{ Auth::user()->name }} -->
-                    <span style="border-radius: 100px; background-color: #028686; padding: 9px;">{{ Auth::user()->initials() }} </span>
+                    <span style="border-radius: 100px; background-color: #fff; padding: 9px;color: #000;">{{ Auth::user()->initials() }} </span>
                     <span class="caret"></span>
                 </a>
                 
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2"></i>
+                  Profile
+                </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>{{ __('Logout') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -87,31 +83,33 @@
             </div>
             </li>
         </div>
+
+        
         @endguest
     </ul>
     @else
             <a href="{{route('login')}}">
-                <button class="btn btn-info">Login</button>
+                <button class="btn text-white" style="border-bottom: #07cffd solid 3px;">Login</button>
             </a>
 
-            <button class="btn btn-info m-2" data-toggle="modal" data-target="#myModal">
+            <button class="btn text-white m-3" style="border-bottom: #07cffd solid 3px;" data-toggle="modal" data-target="#myModal">
               Register
             </button>
     @endrole
-       <div id="myModal" class="modal fade" role="dialog" >
-                <div class="modal-dialog">
+       <div id="myModal" class="modal fade " role="dialog" >
+                <div class="modal-dialog ">
 
-                  <div class="modal-content modalbg">
+                  <div class="modal-content modalbg bordermdal">
                     <div class="modal-header justify-content-center">
-                      <h3 class="modal-title">Registration</h3>
+                      <h3 class="modal-title">Registration Form</h3>
                     </div>
                     <div class="modal-body d-flex justify-content-center" id="link">
-                      <a href="{{route('register')}}" class="p-2"><button class="btn btn-light">Register for Customer</button></a>
-                      <a href="{{route('driverform')}}" class="p-2">
-                        <button class="btn btn-light">Register for Driver</button></a>
+                      <a href="{{route('register')}}" style="background-color: #e8f6f9; border-radius: 10px;" class="m-2 p-1"><button class="btn" >Register for Customer</button></a>
+                      <a href="{{route('driverform')}}" class="m-2 p-1" style="background-color: #e8f6f9; border-radius: 10px;">
+                        <button class="btn">Register for Driver</button></a>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                   </div>
                 </div>
@@ -120,15 +118,12 @@
     </nav>
 
     @yield('content')
-
-    @yield('script')
-       
  
-    <footer class="pt-2" style="background-color: #202e2f; text-align: center;">
+    <footer class="fixed-bottom mt-5" style="background-color: #0d4a4e; text-align: center;">
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12 ">
-                    <p class="text-white pb-3">All right reserved</p>
+                    <p class="text-white pt-3">Made this Project with my Team</p>
                 </div>
             </div>  
         </div>

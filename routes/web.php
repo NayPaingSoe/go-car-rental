@@ -29,6 +29,7 @@ Route::get('searchresult','frontend\ResultController@resultpage')->name('result'
 
 Route::post('driverregister','frontend\DriverController@store')->name('driverregister');
 
+
 Route::get('driverform','frontend\DriverController@create')->name('driverform');
 Route::get('statusone\{id}','frontend\OrderController@statusone')->name('statusone');
 Route::get('statusoneone\{id}','frontend\OrderController@statusoneone')->name('statusoneone');
