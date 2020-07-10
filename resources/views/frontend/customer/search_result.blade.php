@@ -8,8 +8,8 @@
 	</div>
 
 	<div class="container my-5" >
-		{{--		foreach   --}}
 
+		{{--		foreach   --}}
 
 	@if(sizeof($usersdriver)>0)
 	@foreach($usersdriver as $sameone)
@@ -21,7 +21,6 @@
 			<div class="col-lg-3 col-md-3 col-sm-3">
 				<div class="text-center">
 					<i class="fas fa-user-alt" id="icon"></i>
-					<!-- <i class="fas fa-car" id="icon"></i> -->
 					<p>{{$sameone->name}}</p>
 				</div>
 			</div>
@@ -157,9 +156,9 @@
 
 		</div>
 	</div>
-	@endsection
+	
 
-	@section('script')
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".cardetail").hide();
@@ -207,3 +206,4 @@
 		});
 	</script>
 	@endsection
+

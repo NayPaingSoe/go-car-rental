@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\frontend;
-
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Driver;
 use App\Order;
-
+use Auth;
 
 class OrderController extends Controller
 {
@@ -46,19 +46,35 @@ class OrderController extends Controller
 	}
 	public function statusone($id)
 	{      
-		$order=Order::where('driver_id', $id)
+
+        $order=Order::find($id)
         ->update(['status' => 1]);
-     
-		$driver=Driver::where('id', $id)
-        ->update(['busy' => 1]);
+
+              $aid=Auth::user()->id;
     
-         $orders=Order::where('status','=','0')->get();
+        $driver=Driver::where('user_id',$aid)
+        ->select('id')
+        ->first();
+        $driverid=$driver->id;
+        $orders=Order::where('status','=',0)
+          ->where('driver_id',$driverid)
+          ->get();
+     // ->update(['busy' => 1]);
+session(['accepted' => 'good']);
          return view('frontend.driver.index_order',compact('orders'));
 
 	}
 	public function yourorder()
 	{  
-         $orders=Order::where('status','=','1')->get();
+        $aid=Auth::user()->id;
+        $driver=Driver::where('user_id',$aid)
+        ->select('id')
+        ->first();
+        $driverid=$driver->id;
+        $orders=Order::where('status','=',1)
+          ->where('driver_id',$driverid)
+          ->get();
+      
          return view('frontend.driver.your_order',compact('orders'));
 	}
 		public function statusoneone($id)
@@ -67,13 +83,21 @@ class OrderController extends Controller
         $order->status=1.1;
        $order->save();
 
-         $orders=Order::where('status','=','1')->get();
+    $aid=Auth::user()->id;
+        $driver=Driver::where('user_id',$aid)
+        ->select('id')
+        ->first();
+        $driverid=$driver->id;
+        $orders=Order::where('status','=',1)
+          ->where('driver_id',$driverid)
+          ->get();
          return view('frontend.driver.your_order',compact('orders'));
 
 	}
 		public function cancle($id)
 	{      
         $order=Order::find($id);
+
         $order->status=2;
        $order->save();
 

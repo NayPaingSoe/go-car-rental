@@ -6,6 +6,7 @@
 
     <div class="container pb-3 pt-5 d-flex justify-content-center ">
       <div class="card col-lg-6 col-md-10 col-sm-10 shadow-lg p-3 mb-5 bg-white rounded">
+
         <div class="card-block">
           <h2 class="mb-4 text-center" style="color: #115d63;">Find the Trip you want Here</h2>
           <form action="{{route('customer.searchdriver')}}" method="POST">
