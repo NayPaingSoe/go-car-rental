@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Division;
 use App\Driver;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class City extends Model
 {
@@ -17,6 +18,9 @@ class City extends Model
     { 
     	return $this->belongsTo('App\Division');
     }
-
+    public function orders()
+    { 
+    	return $this->belongsTo('App\Order');
+    }
    
 }

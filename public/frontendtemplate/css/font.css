@@ -1,47 +1,5 @@
 @font-face
 {
-	font-family: 'font1';
-	src: url('frontendtemplate/fonts/Cabin-Bold.ttf');
-}
-
-@font-face
-{
-	font-family: 'font2';
-	src: url('frontendtemplate/fonts/Cabin-BoldItalic.ttf');
-}
-
-@font-face
-{
-	font-family: 'font3';
-	src: url('frontendtemplate/fonts/Cabin-Italic.ttf');
-}
-
-@font-face
-{
-	font-family: 'font4';
-	src: url('frontendtemplate/fonts/Cabin-Medium.ttf');
-}
-
-@font-face
-{
-	font-family: 'font5';
-	src: url('frontendtemplate/fonts/Cabin-MediumItalic.ttf');
-}
-
-@font-face
-{
-	font-family: 'font6';
-	src: url('frontendtemplate/fonts/Cabin-Regular.ttf');
-}
-
-@font-face
-{
-	font-family: 'font7';
-	src: url('frontendtemplate/fonts/Cabin-SemiBold.ttf');
-}
-
-@font-face
-{
-	font-family: 'font8';
-	src: url('frontendtemplate/fonts/Cabin-SemiBoldItalic.ttf');
+	font-family:'aa';
+	src: url('{{asset('frontendtemplate/fonts/Quicksand-VariableFont_wght.ttf')}}') format('ttf');
 }

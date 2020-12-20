@@ -1,13 +1,12 @@
 <?php
 
 namespace App;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
 use App\City;
-use App\User;
 use App\Division;
 use App\Order;
+use App\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
@@ -33,7 +32,7 @@ class Driver extends Model
 
      public function order()
      {
-        return $this->belongsTo('App\Order');
+        return $this->hasMany('App\Order');
 
      }
 

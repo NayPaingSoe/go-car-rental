@@ -20,8 +20,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
+<body >
+
+    <div id="app" style="background-image: linear-gradient(45deg, #D2FFFF,#79E7E7, #00AAAA, #007588); height: 50rem;">
        
         
         <main class="py-4">

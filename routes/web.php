@@ -22,11 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //SLN
-
-
 Route::get('searchresult','frontend\ResultController@resultpage')->name('result');
-
-
 Route::post('driverregister','frontend\DriverController@store')->name('driverregister');
 
 
@@ -39,7 +35,7 @@ Route::get('yourorder','frontend\OrderController@yourorder')->name('yourorder');
 Route::get('indexdriver','frontend\DriverController@index')->name('indexdriver');
 Route::get('notification','frontend\CustomerController@notification')->name('notification');
 Route::get('customeryour_order','frontend\CustomerController@customeryour_order')->name('customeryour_order');
-Route::get('customerdone\{id}','frontend\CustomerController@customerdone')->name('customerdone');
+Route::get('customercancle\{id}','frontend\CustomerController@customercancle')->name('customercancle');
 Route::get('policy','frontend\DriverController@policy')->name('policy');
 
 

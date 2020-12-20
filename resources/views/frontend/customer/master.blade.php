@@ -21,48 +21,41 @@
 
     <script type="text/javascript" src="{{asset('frontendtemplate/bootstrap/js/jquery.min.js')}}"></script>
 
-
-
     <script type="text/javascript" src="{{asset('frontendtemplate/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontendtemplate/js/custom.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontendtemplate/js/select2.min.js')}}"></script>
+    <style>
+
+    </style>
 </head>
 
 <body> 
 
 <wrapper class="d-flex flex-column">
-    <nav class="navbar navbar-dark flex-fill " style="height: 80px; background-color: #0d4a4e;">
+    <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #0d4a4e;">
 
         <div class="container-fluid">
-
-
             <div class="d-flex flex-grow-1">
-            <a href="#">
-                <img src="{{asset('frontendtemplate/images/go_logo.png')}}" height="100">
-
-                <span id="car" style="position: absolute;">
-                    <img src="{{asset('frontendtemplate/images/car.svg')}}" height="100">
-                </span>
-
+            <a href="{{route('home')}}">
+                <img src="{{asset('frontendtemplate/images/go_logo.png')}}" height="65px">
             </a>
+            <!-- <span id="car" style="position: absolute;">
+            <img src="{{asset('frontendtemplate/images/car.svg')}}" height="100">
+            </span> -->
             </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent" style=" background-color: #0d4a4e;">
 
-        
-
+<ul class="navbar-nav ml-auto list-unstyled">
     @role('customer')
-        <a href="{{route('home')}}">
-          <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
-            Search Car</button>
-        </a>
-        <a href="{{route('customeryour_order')}}">
-          <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
-            <span style="color: #00f2ff;">Your</span> Order</button>
-        </a>
-        <a href="{{route('notification')}}">
-          <button class="btn text-white m-2" style="border-bottom: #07cffd solid 3px;">
-            <i class="fas fa-bell"></i></button>
-        </a>
-    <ul class="m-2 list-unstyled">
+      
+        @yield('searchbtn')
+
+        @yield('orderbtn')
+ 
+      
         <!-- Authentication Links -->
         @guest
         @else   
@@ -74,7 +67,7 @@
                 </a>
                 
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right navbtn" style="background-color: #0d4a4e" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2"></i>
                   Profile
@@ -96,14 +89,13 @@
         @endguest
     </ul>
     @else
-            <a href="{{route('login')}}">
-                <button class="btn text-white" style="border-bottom: #07cffd solid 3px;">Login</button>
-            </a>
-
-            <button class="btn text-white m-3" style="border-bottom: #07cffd solid 3px;" data-toggle="modal" data-target="#myModal">
-              Register
-            </button>
+        <button class="btn navbtn" ><a href="{{route('login')}}">Login</a></button>
+    
+        <button class="btn text-white navbtn" data-toggle="modal" data-target="#myModal">
+         Register
+        </button>
     @endrole
+</div>
        <div id="myModal" class="modal fade " role="dialog" >
                 <div class="modal-dialog ">
 
@@ -127,10 +119,10 @@
 
     @yield('content')
  
-    <footer class="fixed-bottom mt-5" style="background-color: #0d4a4e; text-align: center;">
+    <footer style="background-color: #0d4a4e; text-align: center; height:100px">
         <div class="container-fluid" >
             <div class="row">
-                <div class="col-12 ">
+                <div class="col-12  mt-4">
                     <p class="text-white pt-3">Made this Project with my Team</p>
                 </div>
             </div>  
@@ -138,7 +130,7 @@
     </footer>
 </wrapper>
 
-
+    
     @yield('script')
 
 </body>

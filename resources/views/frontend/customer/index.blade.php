@@ -1,13 +1,27 @@
 @extends('frontend.customer.master')
 
+@section('searchbtn')
+<button class="btn navbtn active">
+  <a href="{{route('home')}}">Search Car</a>
+</button>
+@endsection
+
+@section('orderbtn')
+<button class="btn navbtn">
+  <a href="{{route('customeryour_order')}}">Your Order</a>
+</button>
+@endsection
+
+
+
 @section('content')
-<div class="img-fluid" id="img" style="background-image: url('{{asset('frontendtemplate/images/car10.jpg')}}')">
-  <div class="container-fluid">
+<div class="img-fluid" id="img" style="background-image: url('{{asset('frontendtemplate/images/car10.jpg')}}'); min-height: 100vh;">
+  <div class="container-fluid" >
 
     <div class="container pb-3 pt-5 d-flex justify-content-center ">
-      <div class="card col-lg-6 col-md-10 col-sm-10 shadow-lg p-3 mb-5 bg-white rounded">
+      <div class="col-lg-6 col-md-10 col-sm-10 shadow-lg p-3 mb-5 rounded" style="background-color: rgba(255,255,255,0.6);">
 
-        <div class="card-block">
+      <div class="card-block"> 
           <h2 class="mb-4 text-center" style="color: #115d63;">Find the Trip you want Here</h2>
           <form action="{{route('customer.searchdriver')}}" method="POST">
             {{csrf_field()}}
@@ -15,8 +29,8 @@
 
             <div class="form-group col-lg-6 col-md-6">
              <div class="p-3">
-              <label for="division">Pick up place/Division </label>
-              <select class="form-control " id="division" name="pickupdivision">
+              <label for="division"><b>Pick up place/Division</b> </label>
+              <select required="required" class="form-control " id="division" name="pickupdivision">
                 <option value="">Select Division</option>
                 @foreach($division as $row)
                 <option value="{{$row->id}}">
@@ -28,16 +42,16 @@
 
             <div class="form-group col-lg-6 col-md-6">
              <div class="p-3">
-              <label for="city">Pick up place/Township </label>
-              <select class="form-control " id="city" name="pickupcity">
+              <label for="city"><b>Pick up place/Township</b> </label>
+              <select required="required" class="form-control" id="city" name="pickupcity">
               </select>
              </div>
             </div>
 
             <div class="form-group col-lg-6 col-md-6">
              <div class="p-3">
-              <label for="dropoffdivision">Drop off place/Division </label>
-              <select class="form-control " id="dropoffdivision" name="dropoffdivision">
+              <label for="dropoffdivision"><b>Drop off place/Division</b></label>
+              <select required="required" class="form-control " id="dropoffdivision" name="dropoffdivision">
                 <option value="">Select Division</option>
                 @foreach($division as $row)
                 <option value="{{$row->id}}">
@@ -49,16 +63,16 @@
 
             <div class="form-group col-lg-6 col-md-6">
               <div class="p-3">
-                <label for="dropoffcity">Drop off place/Township </label>
-                <select class="form-control" id="dropoffcity" name="dropoffcity">
+                <label for="dropoffcity"><b>Drop off place/Township </b></label>
+                <select required="required" class="form-control" id="dropoffcity" name="dropoffcity">
                 </select>
               </div>
             </div>
 
               <div class="form-group col-lg-6 col-md-6">
                <div class="p-3">
-                <label for="exampleFormControlSelect1">Pick up Date </label>
-                <select class="form-control" name="pickupdate" id="exampleFormControlSelect1">
+                <label for="exampleFormControlSelect1"><b>Pick up Date </b></label>
+                <select required="required" class="form-control" name="pickupdate" id="exampleFormControlSelect1">
                   <option value="{{date('y-m-d')}}">{{date('M - d')}}</option>
                   <option value="{{
                     date('y-m-d',strtotime('today + 1day'))
@@ -111,15 +125,15 @@
 
               <div class="form-group col-lg-3 col-md-6">
                <div class="p-3">
-                <label for="exampleFormControlSelect1">Pick up </label>
-                <input type="text" name="pickuptime" class="form-control" placeholder="00:00">
+                <label for="exampleFormControlSelect1"><b>Pick up</b> </label>
+                <input required="required" type="text" name="pickuptime" class="form-control" placeholder="00:00">
                </div>
               </div>
 
               <div class="form-group col-lg-3 col-md-6">
                <div class="p-3">
-                <label for="exampleFormControlSelect1">Time</label>
-                <select class="form-control" name="pickuptimeam" id="exampleFormControlSelect1">
+                <label for="exampleFormControlSelect1"><b>Time</b></label>
+                <select required="required" class="form-control" name="pickuptimeam" id="exampleFormControlSelect1">
                   <option value="AM">AM</option>
                   <option value="PM">PM</option>
                 </select>
@@ -128,8 +142,8 @@
 
               <div class="form-group col-lg-6 col-md-6">
                 <div class="p-3">
-                  <label for="dropdate">Drop off Date </label>
-                  <select class="form-control" id="dropdate" name="dropdate">
+                  <label for="dropdate"><b>Drop off Date </b></label>
+                  <select required="required" class="form-control" id="dropdate" name="dropdate">
                    <option value="{{date('y-m-d')}}">{{date("M - d")}}</option>
                     <option value="{{
                     date('y-m-d',strtotime('today + 1day'))
@@ -233,11 +247,11 @@ $("#dropoffdivision").change(function(){
     }
   });
   $.post("/dropfetch",{id:id},function(res){
-    var html='';
+    var html1='';
     jQuery.each(res, function (key, value) {
-      // console.log(value.name);
-      html+=`<option value="${value.id}">${value.name}</option>`
-      $("#dropoffcity").html(html);
+       console.log(value.id);
+        html1+=`<option value="${value.id}">${value.name}</option>`;
+      $("#dropoffcity").html(html1);
     });
   });
 })

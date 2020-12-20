@@ -19,7 +19,7 @@ class CreateDriversTable extends Migration
             $table->text('driverphoto');
             $table->text('licencephoto');
             $table->text('carphoto');
-            $table->integer('phone');
+            $table->test('phone');
             $table->text('cartype');
             $table->text('carno');
             $table->text('cardetail');

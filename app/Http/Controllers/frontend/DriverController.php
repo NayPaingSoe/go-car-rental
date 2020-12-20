@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Driver;
-use App\Division;
 use App\City;
 use App\User;
 use App\Order;
+use App\Driver;
+use App\Division;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 class DriverController extends Controller
 {
     /**
@@ -43,6 +45,16 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
+       
+        $request->validate([
+            'name'=>'required',
+            'driverphoto'=>'required',
+            'phone'=>'required',
+            'licencephoto'=>'required',
+            'price'=>'required',
+            'email'=>'required|unique:users'
+        ]);
+       $phone=$request->phone;
         $driverimageName = time().'.'.$request->driverphoto->extension();
         $request->driverphoto->move(public_path('images/driver'),$driverimageName);
         $driverfilepath= 'images/driver/'.$driverimageName;
@@ -67,7 +79,7 @@ class DriverController extends Controller
         $driver->driverphoto=$driverfilepath;
         $driver->licencephoto=$licencefilepath;
         $driver->carphoto=$carfilepath;
-        $driver->phone=$request->phone;
+        $driver->phone=$phone;
         $driver->cartype=$request->type;
         $driver->carno=$request->carno;
         $driver->cardetail=$request->details;
@@ -99,7 +111,8 @@ class DriverController extends Controller
 
         
         // return $user;
-        return view ('frontend.driver.policy');
+       // return view ('frontend.driver.policy');
+        return view ('auth.login');
      
     }
 

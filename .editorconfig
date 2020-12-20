@@ -13,3 +13,10 @@ trim_trailing_whitespace = false
 
 [*.{yml,yaml}]
 indent_size = 2
+
+// Set the default
+"editor.formatOnSave": true,
+// Enable per-language
+"[javascript]": {
+    "editor.formatOnSave": true
+}

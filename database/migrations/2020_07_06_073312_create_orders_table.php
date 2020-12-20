@@ -16,21 +16,25 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            
             $table->unsignedBigInteger('driver_id');
-            $table->string('pickup_division');
-            $table->string('pickup_city');
-            $table->string('dropoff_division');
-            $table->string('dropoff_city');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
+            $table->unsignedBigInteger('pickup_city');
+            $table->foreign('pickup_city')->references('id')->on('cities')->onDelete('cascade');
+            $table->unsignedBigInteger('dropoff_city');
+            $table->foreign('dropoff_city')->references('id')->on('cities')->onDelete('cascade');
+           
             $table->date('pickup_date');
             $table->date('dropoff_date');
             $table->integer('pickup_time');
             $table->string('pickup_time_am');
-            $table->integer('price');
-            $table->string('cartype');
+            $table->integer('total_price');
+
             $table->string('status');
             $table->timestamps();
             $table->softDeletes();
-
 
 
         });
